@@ -26,3 +26,24 @@ Constraints:
  
 
 Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?
+
+
+Breakdown
+
+1. A subsequence is a sequence derived by deleting some or none of the elements of an array without changing the order of the remaining elements. Each element in the subsequence must be greater then the previous one.
+
+Pseudocode
+
+function lengthOfLIS(nums):
+    if nums is empty:
+        return 0
+
+    n = length of nums
+    dp = array of size n filled with 1 // Initialize dp array where each element is 1
+
+    for i from 1 to n-1:
+        for j from 0 to i-1:
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max value in dp
